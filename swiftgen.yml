@@ -1,0 +1,18 @@
+strings:
+  inputs: 
+    - ForaSoftTestTask/Resources/Localizable.strings
+  outputs:
+    templateName: structured-swift4
+    output: ForaSoftTestTask/Resources/Strings.swift
+    enumName: Strings
+xcassets:
+  inputs: ForaSoftTestTask/Resources/Assets.xcassets
+  outputs:
+    templateName: swift4
+    output: ForaSoftTestTask/Resources/Assets.swift
+ib:
+  inputs: 
+    - ForaSoftTestTask/Resources/Base.lproj
+  outputs:
+    - templateName: scenes-swift4
+      output: ForaSoftTestTask/Resources/Scenes.swift

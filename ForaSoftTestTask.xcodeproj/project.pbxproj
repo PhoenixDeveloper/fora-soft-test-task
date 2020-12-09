@@ -3,16 +3,23 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		BD56D3482580AD6A00BECC2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD56D3472580AD6A00BECC2E /* AppDelegate.swift */; };
-		BD56D34A2580AD6A00BECC2E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD56D3492580AD6A00BECC2E /* SceneDelegate.swift */; };
-		BD56D34C2580AD6A00BECC2E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD56D34B2580AD6A00BECC2E /* ViewController.swift */; };
-		BD56D34F2580AD6A00BECC2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD56D34D2580AD6A00BECC2E /* Main.storyboard */; };
 		BD56D3512580AD6F00BECC2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD56D3502580AD6F00BECC2E /* Assets.xcassets */; };
 		BD56D3542580AD6F00BECC2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD56D3522580AD6F00BECC2E /* LaunchScreen.storyboard */; };
+		BD5B8DD42580D28C00703BAD /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5B8DD32580D28C00703BAD /* StringExtension.swift */; };
+		BD5B8DD72580DF8D00703BAD /* AlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5B8DD62580DF8D00703BAD /* AlbumCollectionViewCell.swift */; };
+		BD620F542580C13200843D8B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD620F532580C13200843D8B /* Constants.swift */; };
+		BD620F562580C22B00843D8B /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD620F552580C22B00843D8B /* Album.swift */; };
+		BD9971292580BD80000C94DC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BD9971282580BD80000C94DC /* Localizable.strings */; };
+		BD99712D2580BECC000C94DC /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD99712A2580BECB000C94DC /* Assets.swift */; };
+		BD99712E2580BECC000C94DC /* Scenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD99712B2580BECC000C94DC /* Scenes.swift */; };
+		BD99712F2580BECC000C94DC /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD99712C2580BECC000C94DC /* Strings.swift */; };
+		BD9971322580BF9C000C94DC /* ListAlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9971312580BF9C000C94DC /* ListAlbumsViewController.swift */; };
+		BD9971352580C013000C94DC /* ListAlbumsViewController+WorkWithAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9971342580C013000C94DC /* ListAlbumsViewController+WorkWithAPI.swift */; };
 		C5BA685403CEB9F475788437 /* Pods_ForaSoftTestTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC860500AB2C31ADDECAAECC /* Pods_ForaSoftTestTask.framework */; };
 /* End PBXBuildFile section */
 
@@ -20,12 +27,19 @@
 		64AAA2C915A5658A53801168 /* Pods-ForaSoftTestTask.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ForaSoftTestTask.debug.xcconfig"; path = "Target Support Files/Pods-ForaSoftTestTask/Pods-ForaSoftTestTask.debug.xcconfig"; sourceTree = "<group>"; };
 		BD56D3442580AD6A00BECC2E /* ForaSoftTestTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ForaSoftTestTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD56D3472580AD6A00BECC2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BD56D3492580AD6A00BECC2E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BD56D34B2580AD6A00BECC2E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		BD56D34E2580AD6A00BECC2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BD56D3502580AD6F00BECC2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD56D3532580AD6F00BECC2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BD56D3552580AD6F00BECC2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD5B8DD32580D28C00703BAD /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		BD5B8DD62580DF8D00703BAD /* AlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCollectionViewCell.swift; sourceTree = "<group>"; };
+		BD620F532580C13200843D8B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BD620F552580C22B00843D8B /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		BD9971282580BD80000C94DC /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		BD99712A2580BECB000C94DC /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
+		BD99712B2580BECC000C94DC /* Scenes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scenes.swift; sourceTree = "<group>"; };
+		BD99712C2580BECC000C94DC /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		BD9971312580BF9C000C94DC /* ListAlbumsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAlbumsViewController.swift; sourceTree = "<group>"; };
+		BD9971342580C013000C94DC /* ListAlbumsViewController+WorkWithAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListAlbumsViewController+WorkWithAPI.swift"; sourceTree = "<group>"; };
 		CC860500AB2C31ADDECAAECC /* Pods_ForaSoftTestTask.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ForaSoftTestTask.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E75902375992E319B4365904 /* Pods-ForaSoftTestTask.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ForaSoftTestTask.release.xcconfig"; path = "Target Support Files/Pods-ForaSoftTestTask/Pods-ForaSoftTestTask.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -50,6 +64,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BD3F65E02580BAD00032F47E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BD99712A2580BECB000C94DC /* Assets.swift */,
+				BD99712B2580BECC000C94DC /* Scenes.swift */,
+				BD99712C2580BECC000C94DC /* Strings.swift */,
+				BD56D3502580AD6F00BECC2E /* Assets.xcassets */,
+				BD56D3522580AD6F00BECC2E /* LaunchScreen.storyboard */,
+				BD9971282580BD80000C94DC /* Localizable.strings */,
+				BD620F532580C13200843D8B /* Constants.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		BD56D33B2580AD6A00BECC2E = {
 			isa = PBXGroup;
 			children = (
@@ -71,15 +99,64 @@
 		BD56D3462580AD6A00BECC2E /* ForaSoftTestTask */ = {
 			isa = PBXGroup;
 			children = (
+				BD9971332580BFA7000C94DC /* Core */,
+				BD9971302580BF69000C94DC /* ViewControllers */,
+				BD3F65E02580BAD00032F47E /* Resources */,
 				BD56D3472580AD6A00BECC2E /* AppDelegate.swift */,
-				BD56D3492580AD6A00BECC2E /* SceneDelegate.swift */,
-				BD56D34B2580AD6A00BECC2E /* ViewController.swift */,
-				BD56D34D2580AD6A00BECC2E /* Main.storyboard */,
-				BD56D3502580AD6F00BECC2E /* Assets.xcassets */,
-				BD56D3522580AD6F00BECC2E /* LaunchScreen.storyboard */,
 				BD56D3552580AD6F00BECC2E /* Info.plist */,
 			);
 			path = ForaSoftTestTask;
+			sourceTree = "<group>";
+		};
+		BD5B8DD22580D27A00703BAD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BD5B8DD32580D28C00703BAD /* StringExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BD5B8DD52580DF6C00703BAD /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				BD5B8DD62580DF8D00703BAD /* AlbumCollectionViewCell.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		BD9971302580BF69000C94DC /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BD9971362580C017000C94DC /* ListAlbums */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		BD9971332580BFA7000C94DC /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				BD5B8DD22580D27A00703BAD /* Extensions */,
+				BD9971372580C027000C94DC /* Enties */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		BD9971362580C017000C94DC /* ListAlbums */ = {
+			isa = PBXGroup;
+			children = (
+				BD5B8DD52580DF6C00703BAD /* Support */,
+				BD9971312580BF9C000C94DC /* ListAlbumsViewController.swift */,
+				BD9971342580C013000C94DC /* ListAlbumsViewController+WorkWithAPI.swift */,
+			);
+			path = ListAlbums;
+			sourceTree = "<group>";
+		};
+		BD9971372580C027000C94DC /* Enties */ = {
+			isa = PBXGroup;
+			children = (
+				BD620F552580C22B00843D8B /* Album.swift */,
+			);
+			path = Enties;
 			sourceTree = "<group>";
 		};
 		ECAEA3369C896A72787B7622 /* Pods */ = {
@@ -88,7 +165,6 @@
 				64AAA2C915A5658A53801168 /* Pods-ForaSoftTestTask.debug.xcconfig */,
 				E75902375992E319B4365904 /* Pods-ForaSoftTestTask.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -103,6 +179,8 @@
 				BD56D3402580AD6A00BECC2E /* Sources */,
 				BD56D3412580AD6A00BECC2E /* Frameworks */,
 				BD56D3422580AD6A00BECC2E /* Resources */,
+				88BC79F0F357B0370F9C7F27 /* [CP] Embed Pods Frameworks */,
+				BD3F65E12580BC280032F47E /* SwiftGen */,
 			);
 			buildRules = (
 			);
@@ -152,14 +230,49 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD56D3542580AD6F00BECC2E /* LaunchScreen.storyboard in Resources */,
+				BD9971292580BD80000C94DC /* Localizable.strings in Resources */,
 				BD56D3512580AD6F00BECC2E /* Assets.xcassets in Resources */,
-				BD56D34F2580AD6A00BECC2E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		88BC79F0F357B0370F9C7F27 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ForaSoftTestTask/Pods-ForaSoftTestTask-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ForaSoftTestTask/Pods-ForaSoftTestTask-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ForaSoftTestTask/Pods-ForaSoftTestTask-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BD3F65E12580BC280032F47E /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftGen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ -f \"${PODS_ROOT}/SwiftGen/bin/swiftgen\" ]]; then\n  \"${PODS_ROOT}/SwiftGen/bin/swiftgen\"\nelse\n  echo \"warning: SwiftGen is not installed. Run 'pod install --repo-update' to install it.\"\nfi\n";
+		};
 		D3EB4923D841A572ED72563E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -189,23 +302,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD56D34C2580AD6A00BECC2E /* ViewController.swift in Sources */,
+				BD9971322580BF9C000C94DC /* ListAlbumsViewController.swift in Sources */,
+				BD99712D2580BECC000C94DC /* Assets.swift in Sources */,
+				BD9971352580C013000C94DC /* ListAlbumsViewController+WorkWithAPI.swift in Sources */,
 				BD56D3482580AD6A00BECC2E /* AppDelegate.swift in Sources */,
-				BD56D34A2580AD6A00BECC2E /* SceneDelegate.swift in Sources */,
+				BD5B8DD72580DF8D00703BAD /* AlbumCollectionViewCell.swift in Sources */,
+				BD620F542580C13200843D8B /* Constants.swift in Sources */,
+				BD5B8DD42580D28C00703BAD /* StringExtension.swift in Sources */,
+				BD99712F2580BECC000C94DC /* Strings.swift in Sources */,
+				BD99712E2580BECC000C94DC /* Scenes.swift in Sources */,
+				BD620F562580C22B00843D8B /* Album.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		BD56D34D2580AD6A00BECC2E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BD56D34E2580AD6A00BECC2E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		BD56D3522580AD6F00BECC2E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -339,6 +451,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8374DGJ7W4;
 				INFOPLIST_FILE = ForaSoftTestTask/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -346,7 +459,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mob.ForaSoftTestTask;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -358,6 +471,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8374DGJ7W4;
 				INFOPLIST_FILE = ForaSoftTestTask/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -365,7 +479,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mob.ForaSoftTestTask;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

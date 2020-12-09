@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  ForaSoftTestTask
+
+  Created by Михаил Беленко on 09.12.2020.
+  Copyright © 2020 MOB. All rights reserved.
+*/
+
+"ListAlbum.SearchBar.placeholder" = "Search albums...";
+
+"AlbumCell.artistName" = "A singer: %@";
+"AlbumCell.genre" = "Genre: %@";
+"AlbumCell.countSongs" = "Number of tracks: %d";
