@@ -13,9 +13,11 @@
 		BD56D34F2580AD6A00BECC2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD56D34D2580AD6A00BECC2E /* Main.storyboard */; };
 		BD56D3512580AD6F00BECC2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD56D3502580AD6F00BECC2E /* Assets.xcassets */; };
 		BD56D3542580AD6F00BECC2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD56D3522580AD6F00BECC2E /* LaunchScreen.storyboard */; };
+		C5BA685403CEB9F475788437 /* Pods_ForaSoftTestTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC860500AB2C31ADDECAAECC /* Pods_ForaSoftTestTask.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		64AAA2C915A5658A53801168 /* Pods-ForaSoftTestTask.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ForaSoftTestTask.debug.xcconfig"; path = "Target Support Files/Pods-ForaSoftTestTask/Pods-ForaSoftTestTask.debug.xcconfig"; sourceTree = "<group>"; };
 		BD56D3442580AD6A00BECC2E /* ForaSoftTestTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ForaSoftTestTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD56D3472580AD6A00BECC2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD56D3492580AD6A00BECC2E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +26,8 @@
 		BD56D3502580AD6F00BECC2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD56D3532580AD6F00BECC2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BD56D3552580AD6F00BECC2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CC860500AB2C31ADDECAAECC /* Pods_ForaSoftTestTask.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ForaSoftTestTask.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E75902375992E319B4365904 /* Pods-ForaSoftTestTask.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ForaSoftTestTask.release.xcconfig"; path = "Target Support Files/Pods-ForaSoftTestTask/Pods-ForaSoftTestTask.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5BA685403CEB9F475788437 /* Pods_ForaSoftTestTask.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00A326327CB4CEA458A1FB47 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CC860500AB2C31ADDECAAECC /* Pods_ForaSoftTestTask.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BD56D33B2580AD6A00BECC2E = {
 			isa = PBXGroup;
 			children = (
 				BD56D3462580AD6A00BECC2E /* ForaSoftTestTask */,
 				BD56D3452580AD6A00BECC2E /* Products */,
+				ECAEA3369C896A72787B7622 /* Pods */,
+				00A326327CB4CEA458A1FB47 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +82,16 @@
 			path = ForaSoftTestTask;
 			sourceTree = "<group>";
 		};
+		ECAEA3369C896A72787B7622 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				64AAA2C915A5658A53801168 /* Pods-ForaSoftTestTask.debug.xcconfig */,
+				E75902375992E319B4365904 /* Pods-ForaSoftTestTask.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,6 +99,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BD56D3582580AD6F00BECC2E /* Build configuration list for PBXNativeTarget "ForaSoftTestTask" */;
 			buildPhases = (
+				D3EB4923D841A572ED72563E /* [CP] Check Pods Manifest.lock */,
 				BD56D3402580AD6A00BECC2E /* Sources */,
 				BD56D3412580AD6A00BECC2E /* Frameworks */,
 				BD56D3422580AD6A00BECC2E /* Resources */,
@@ -132,6 +158,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D3EB4923D841A572ED72563E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ForaSoftTestTask-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BD56D3402580AD6A00BECC2E /* Sources */ = {
@@ -282,6 +333,7 @@
 		};
 		BD56D3592580AD6F00BECC2E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64AAA2C915A5658A53801168 /* Pods-ForaSoftTestTask.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -300,6 +352,7 @@
 		};
 		BD56D35A2580AD6F00BECC2E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E75902375992E319B4365904 /* Pods-ForaSoftTestTask.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
