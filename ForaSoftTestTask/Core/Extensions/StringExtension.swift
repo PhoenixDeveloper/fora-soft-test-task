@@ -16,3 +16,9 @@ extension String {
         return self.replacingOccurrences(of: String.space, with: "+").replacingOccurrences(of: "#", with: "%23").replacingOccurrences(of: "&", with: "%26")
     }
 }
+
+extension Optional where Wrapped: StringProtocol {
+    var isNilOrEmpty: Bool {
+        return self?.isEmpty ?? true
+    }
+}

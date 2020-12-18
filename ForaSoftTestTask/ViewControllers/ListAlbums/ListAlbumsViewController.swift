@@ -8,79 +8,158 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 class ListAlbumsViewController: UIViewController {
 
-    private lazy var refreshController = UIRefreshControl()
+    private let disposeBag = DisposeBag()
 
-    private lazy var searchController: UISearchController = {
-        let seacrhController = UISearchController(searchResultsController: self)
+    private lazy var refreshControl = UIRefreshControl()
 
-        seacrhController.searchBar.delegate = self
-        seacrhController.hidesNavigationBarDuringPresentation = false
-        seacrhController.searchBar.placeholder = L10n.ListAlbum.SearchBar.placeholder
-        seacrhController.searchBar.sizeToFit()
-        seacrhController.searchBar.barTintColor = self.navigationController?.navigationBar.barTintColor
-        seacrhController.searchBar.tintColor = self.view.tintColor
-        return seacrhController
+    private lazy var searchBar: UISearchBar = {
+        let searchBar = UISearchBar()
+        searchBar.delegate = self
+        searchBar.placeholder = L10n.ListAlbum.SearchBar.placeholder
+        searchBar.sizeToFit()
+        searchBar.barTintColor = self.navigationController?.navigationBar.barTintColor
+        searchBar.tintColor = self.view.tintColor
+        return searchBar
     }()
 
     private let containerView = UIView()
 
-    private lazy var collectionView: UICollectionView = {
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        let collectionView = UICollectionView(frame: self.containerView.frame, collectionViewLayout: layout)
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.refreshControl = self.refreshController
-        collectionView.register(AlbumCollectionViewCell.self, forCellWithReuseIdentifier: Constants.ListAlbum.reuseIdentifier)
-        return collectionView
-    }()
+    var collectionView: UICollectionView?
 
     private var albumsList: [Album] = [] {
         didSet {
-            DispatchQueue.main.async { [unowned self] in
-                self.collectionView.reloadData()
-            }
+            self.refreshControl.endRefreshing()
+            self.collectionView?.reloadData()
         }
+    }
+
+    private var needUpdateFrameCollection: Bool = false
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow),
+                                               name: UIResponder.keyboardWillShowNotification,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide),
+                                               name: UIResponder.keyboardWillHideNotification,
+                                               object: nil)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        NotificationCenter.default.removeObserver(self)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        configureUI()
+        addSubviews()
         configureNavigationController()
         configureCollectionView()
         setupConstraints()
+        configureEvents()
+
+        search()
+    }
+
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        needUpdateFrameCollection = true
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        if needUpdateFrameCollection {
+            configureCollectionView()
+            needUpdateFrameCollection = false
+        }
+    }
+
+    private func configureUI() {
+        view.backgroundColor = Asset.backgroundColor.color
+        containerView.backgroundColor = Asset.backgroundColor.color
+    }
+
+    private func addSubviews() {
+        view.addSubview(containerView)
     }
 
     private func configureNavigationController() {
         definesPresentationContext = true
-        navigationItem.titleView = searchController.searchBar
+        navigationItem.titleView = searchBar
     }
 
     private func configureCollectionView() {
-        view.addSubview(containerView)
+        collectionView?.removeFromSuperview()
+
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.minimumLineSpacing = 1
+        layout.minimumInteritemSpacing = 1
+        
+        let width = (self.view.bounds.width - 32) / 2 - 1
+        layout.itemSize = CGSize(width: width, height: width)
+
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = Asset.backgroundColor.color
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.refreshControl = self.refreshControl
+        collectionView.register(AlbumCollectionViewCell.self, forCellWithReuseIdentifier: Constants.ListAlbum.reuseIdentifier)
+
+        self.collectionView = collectionView
+
+        containerView.addSubview(collectionView)
+
+        collectionView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
 
     private func setupConstraints() {
         containerView.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(16)
+            make.edges.equalTo(view.safeAreaLayoutGuide).inset(16)
+        }
+    }
+
+    private func configureEvents() {
+        searchBar.rx.text.asObservable().throttle(.seconds(1), scheduler: MainScheduler.instance).subscribe(onNext: { [unowned self] text in
+            if !text.isNilOrEmpty {
+                self.search(text: text)
+            }
+        }).disposed(by: disposeBag)
+
+        refreshControl.rx.controlEvent(.valueChanged).subscribe(onNext: { [unowned self] in
+            self.search(text: self.searchBar.text)
+        }).disposed(by: disposeBag)
+    }
+
+    private func search(text: String? = nil) {
+        if text == nil {
+            searchBar.text = Constants.ListAlbum.defaultSearchText
+        }
+
+        let searchText = text.isNilOrEmpty ? Constants.ListAlbum.defaultSearchText : text!
+
+        searchAlbums(searchText: searchText) { [unowned self] albums in
+            self.albumsList = albums
         }
     }
 }
 
 extension ListAlbumsViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let searchText = searchController.searchBar.text else {
-            return
-        }
-
-        refreshController.beginRefreshing()
-
-        searchAlbums(searchText: searchText) { [unowned self] albums in
-            self.albumsList = albums
-            self.refreshController.endRefreshing()
-        }
+        search(text: searchBar.text)
+        searchBar.endEditing(true)
     }
 }
 
@@ -95,16 +174,5 @@ extension ListAlbumsViewController: UICollectionViewDelegate, UICollectionViewDa
         }
         albumCell.update(album: albumsList[indexPath.row])
         return albumCell
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
-    {
-        let width = (view.bounds.width / 2) - 24
-        return CGSize(width: width, height: width)
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
-    {
-        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
 }

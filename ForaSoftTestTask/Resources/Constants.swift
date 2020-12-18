@@ -13,5 +13,6 @@ struct Constants {
 
     struct ListAlbum {
         static let reuseIdentifier = "AlbumReuseIdentifier"
+        static let defaultSearchText = "Noize MC"
     }
 }

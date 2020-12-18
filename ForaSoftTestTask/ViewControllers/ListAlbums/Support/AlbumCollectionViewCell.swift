@@ -12,6 +12,8 @@ import SnapKit
 
 class AlbumCollectionViewCell: UICollectionViewCell {
 
+    var a: Int?
+
     //private var isHeightCalculated: Bool = false
     private let artworkSize: CGSize = .init(width: 100, height: 100)
 
@@ -49,6 +51,7 @@ class AlbumCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.font = .systemFont(ofSize: 14, weight: .regular)
         label.textColor = .black
+        label.numberOfLines = 0
         return label
     }()
 
@@ -57,6 +60,7 @@ class AlbumCollectionViewCell: UICollectionViewCell {
         label.font = .systemFont(ofSize: 12, weight: .regular)
         label.textColor = UIColor.black.withAlphaComponent(0.3)
         label.textAlignment = .right
+        label.numberOfLines = 0
         return label
     }()
 
@@ -71,19 +75,6 @@ class AlbumCollectionViewCell: UICollectionViewCell {
 
         initialization()
     }
-
-//    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
-//        if !isHeightCalculated {
-//            setNeedsLayout()
-//            layoutIfNeeded()
-//            let size = contentView.systemLayoutSizeFitting(layoutAttributes.size)
-//            var newFrame = layoutAttributes.frame
-//            newFrame.size.width = CGFloat(ceilf(Float(size.width)))
-//            layoutAttributes.frame = newFrame
-//            isHeightCalculated = true
-//        }
-//        return layoutAttributes
-//    }
 
     private func initialization() {
         backgroundColor = .white
@@ -116,7 +107,8 @@ class AlbumCollectionViewCell: UICollectionViewCell {
     private func setupConstraints() {
         artworkImageView.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview().inset(16)
-            make.size.equalTo(artworkSize)
+//            make.centerX.equalToSuperview()
+//            make.size.equalTo(artworkSize)
         }
 
         artistNameLabel.snp.makeConstraints { make in

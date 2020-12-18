@@ -14,6 +14,7 @@
 		BD5B8DD72580DF8D00703BAD /* AlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5B8DD62580DF8D00703BAD /* AlbumCollectionViewCell.swift */; };
 		BD620F542580C13200843D8B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD620F532580C13200843D8B /* Constants.swift */; };
 		BD620F562580C22B00843D8B /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD620F552580C22B00843D8B /* Album.swift */; };
+		BD877270258CF63800D08F04 /* ListAlbumsViewController+KeyboardMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD87726F258CF63800D08F04 /* ListAlbumsViewController+KeyboardMethods.swift */; };
 		BD9971292580BD80000C94DC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BD9971282580BD80000C94DC /* Localizable.strings */; };
 		BD99712D2580BECC000C94DC /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD99712A2580BECB000C94DC /* Assets.swift */; };
 		BD99712E2580BECC000C94DC /* Scenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD99712B2580BECC000C94DC /* Scenes.swift */; };
@@ -34,6 +35,7 @@
 		BD5B8DD62580DF8D00703BAD /* AlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCollectionViewCell.swift; sourceTree = "<group>"; };
 		BD620F532580C13200843D8B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BD620F552580C22B00843D8B /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		BD87726F258CF63800D08F04 /* ListAlbumsViewController+KeyboardMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListAlbumsViewController+KeyboardMethods.swift"; sourceTree = "<group>"; };
 		BD9971282580BD80000C94DC /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		BD99712A2580BECB000C94DC /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		BD99712B2580BECC000C94DC /* Scenes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scenes.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				BD5B8DD52580DF6C00703BAD /* Support */,
 				BD9971312580BF9C000C94DC /* ListAlbumsViewController.swift */,
 				BD9971342580C013000C94DC /* ListAlbumsViewController+WorkWithAPI.swift */,
+				BD87726F258CF63800D08F04 /* ListAlbumsViewController+KeyboardMethods.swift */,
 			);
 			path = ListAlbums;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD877270258CF63800D08F04 /* ListAlbumsViewController+KeyboardMethods.swift in Sources */,
 				BD9971322580BF9C000C94DC /* ListAlbumsViewController.swift in Sources */,
 				BD99712D2580BECC000C94DC /* Assets.swift in Sources */,
 				BD9971352580C013000C94DC /* ListAlbumsViewController+WorkWithAPI.swift in Sources */,
