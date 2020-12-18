@@ -26,10 +26,26 @@ internal enum L10n {
     }
   }
 
-  internal enum ListAlbum {
+  internal enum ListAlbums {
     internal enum SearchBar {
       /// Search albums...
-      internal static let placeholder = L10n.tr("Localizable", "ListAlbum.SearchBar.placeholder")
+      internal static let placeholder = L10n.tr("Localizable", "ListAlbums.SearchBar.placeholder")
+    }
+  }
+
+  internal enum ListSongs {
+    /// List of songs
+    internal static let songsList = L10n.tr("Localizable", "ListSongs.songsList")
+  }
+
+  internal enum SongCell {
+    /// Duration: %@
+    internal static func duration(_ p1: Any) -> String {
+      return L10n.tr("Localizable", "SongCell.duration", String(describing: p1))
+    }
+    /// A singer: %@
+    internal static func singer(_ p1: Any) -> String {
+      return L10n.tr("Localizable", "SongCell.singer", String(describing: p1))
     }
   }
 }

@@ -12,13 +12,25 @@ import SnapKit
 
 class AlbumCollectionViewCell: UICollectionViewCell {
 
-    var a: Int?
+    var needArtworkSizeSetup: Bool = false {
+        didSet {
+            artworkImageView.snp.removeConstraints()
+            artworkImageView.snp.makeConstraints { make in
+                make.top.equalToSuperview().inset(16)
 
-    //private var isHeightCalculated: Bool = false
-    private let artworkSize: CGSize = .init(width: 100, height: 100)
+                if needArtworkSizeSetup {
+                    make.centerX.equalToSuperview()
+                    make.size.equalTo(Constants.artworkSize)
+                } else {
+                    make.leading.trailing.equalToSuperview().inset(16)
+                }
+            }
+        }
+    }
 
     private lazy var artworkImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
 
@@ -106,9 +118,15 @@ class AlbumCollectionViewCell: UICollectionViewCell {
 
     private func setupConstraints() {
         artworkImageView.snp.makeConstraints { make in
-            make.top.leading.trailing.equalToSuperview().inset(16)
-//            make.centerX.equalToSuperview()
-//            make.size.equalTo(artworkSize)
+            make.top.equalToSuperview().inset(16)
+
+            if needArtworkSizeSetup {
+                make.centerX.equalToSuperview()
+                make.size.equalTo(Constants.artworkSize)
+            } else {
+                make.leading.trailing.equalToSuperview().inset(16)
+            }
+
         }
 
         artistNameLabel.snp.makeConstraints { make in

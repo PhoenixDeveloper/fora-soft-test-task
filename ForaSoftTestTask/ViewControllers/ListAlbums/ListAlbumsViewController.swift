@@ -15,12 +15,12 @@ class ListAlbumsViewController: UIViewController {
 
     private let disposeBag = DisposeBag()
 
-    private lazy var refreshControl = UIRefreshControl()
+    private var refreshControl = UIRefreshControl()
 
     private lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.delegate = self
-        searchBar.placeholder = L10n.ListAlbum.SearchBar.placeholder
+        searchBar.placeholder = L10n.ListAlbums.SearchBar.placeholder
         searchBar.sizeToFit()
         searchBar.barTintColor = self.navigationController?.navigationBar.barTintColor
         searchBar.tintColor = self.view.tintColor
@@ -150,8 +150,8 @@ class ListAlbumsViewController: UIViewController {
 
         let searchText = text.isNilOrEmpty ? Constants.ListAlbum.defaultSearchText : text!
 
-        searchAlbums(searchText: searchText) { [unowned self] albums in
-            self.albumsList = albums
+        searchAlbums(searchText: searchText) { [weak self] albums in
+            self?.albumsList = albums
         }
     }
 }
@@ -174,5 +174,9 @@ extension ListAlbumsViewController: UICollectionViewDelegate, UICollectionViewDa
         }
         albumCell.update(album: albumsList[indexPath.row])
         return albumCell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        goToDetailsAlbumScreen(album: albumsList[indexPath.row])
     }
 }

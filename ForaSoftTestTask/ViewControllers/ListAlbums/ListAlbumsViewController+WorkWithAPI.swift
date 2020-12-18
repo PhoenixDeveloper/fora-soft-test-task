@@ -12,7 +12,7 @@ import Alamofire
 extension ListAlbumsViewController {
     func searchAlbums(searchText: String, completion: @escaping ([Album]) -> Void) {
         guard let searchTextEncoded = searchText.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed),
-            let url = URL(string: "\(Constants.url)?entity=album&term=\(searchTextEncoded)") else {
+            let url = URL(string: "\(Constants.url)?entity=album&term=\(searchTextEncoded)&limit=200") else {
             return
         }
         AF.request(url).responseJSON  { responce in switch responce.result {
