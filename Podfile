@@ -13,5 +13,6 @@ target 'ForaSoftTestTask' do
   pod 'RxSwift', '6.0.0-rc.2'
   pod 'RxCocoa', '6.0.0-rc.2'
   pod 'DTTableViewManager', '~> 7.2.0'
+  pod 'SwiftMessages'
 
 end

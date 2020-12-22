@@ -22,7 +22,12 @@ internal typealias AssetImageTypeAlias = ImageAsset.Image
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
 internal enum Asset {
   internal static let backgroundColor = ColorAsset(name: "backgroundColor")
+  internal static let errorMessageColor = ColorAsset(name: "errorMessageColor")
+  internal static let infoMessageColor = ColorAsset(name: "infoMessageColor")
   internal static let searchEmptyState = ImageAsset(name: "searchEmptyState")
+  internal static let successMessageColor = ColorAsset(name: "successMessageColor")
+  internal static let warningMessageColor = ColorAsset(name: "warningMessageColor")
+  internal static let warningMessageTextColor = ColorAsset(name: "warningMessageTextColor")
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
 

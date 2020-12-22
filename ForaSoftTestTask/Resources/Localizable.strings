@@ -17,3 +17,5 @@
 
 "SongCell.singer" = "A singer: %@";
 "SongCell.duration" = "Duration: %@";
+
+"Error.clientError" = "An application error has occurred. Please update your application in AppStore or inform customer service";

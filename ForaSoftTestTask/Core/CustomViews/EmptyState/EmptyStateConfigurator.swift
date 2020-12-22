@@ -1,5 +1,5 @@
 //
-//  EmptyStateView.swift
+//  EmptyStateConfigurator.swift
 //  ForaSoftTestTask
 //
 //  Created by Михаил Беленко on 22.12.2020.

@@ -53,8 +53,10 @@ class ListAlbumsViewController: UIViewController {
     private var albumsList: [Album] = [] {
         didSet {
             self.collectionView?.reloadData()
-            self.emptyStateConfigurator.handle()
-            self.refreshControl.endRefreshing()
+
+            if !refreshControl.isRefreshing {
+                self.emptyStateConfigurator.handle()
+            }
         }
     }
 
@@ -159,7 +161,7 @@ class ListAlbumsViewController: UIViewController {
     }
 
     private func configureEvents() {
-        searchBar.rx.text.asObservable().throttle(.seconds(1), scheduler: MainScheduler.instance).subscribe(onNext: { [unowned self] text in
+        searchBar.rx.text.asObservable().throttle(.milliseconds(500), scheduler: MainScheduler.instance).subscribe(onNext: { [unowned self] text in
             if let text = text, !text.isEmpty {
                 self.search(text: text)
             } else {
@@ -176,7 +178,21 @@ class ListAlbumsViewController: UIViewController {
 
     private func search(text: String) {
         refreshControl.beginRefreshing()
-        searchAlbums(searchText: text) { [weak self] albums in
+        albumsList.removeAll()
+        ApiService.standart.searchAlbums(searchText: text) { [weak self] albums, error in
+            if let error = error {
+                MessageManager.standart.showNetworkError(message: error.localizedDescription)
+                self?.refreshControl.endRefreshing()
+                return
+            }
+
+            guard let albums = albums else {
+                MessageManager.standart.showError(message: L10n.Error.clientError)
+                self?.refreshControl.endRefreshing()
+                return
+            }
+
+            self?.refreshControl.endRefreshing()
             self?.albumsList = albums
         }
     }

@@ -17,7 +17,7 @@ class DetailsAlbumViewController: UIViewController, DTTableViewManageable {
 
     private let disposeBag = DisposeBag()
 
-    var refreshControl = UIRefreshControl()
+    private var refreshControl = UIRefreshControl()
 
     lazy var tableView: UITableView! = {
         let tableView = UITableView(frame: .zero, style: .grouped)
@@ -81,7 +81,21 @@ class DetailsAlbumViewController: UIViewController, DTTableViewManageable {
     }
 
     private func updateData() {
-        getSongs(albumName: album.collectionName, albumId: album.id) { [weak self] songs in
+        refreshControl.beginRefreshing()
+        ApiService.standart.getSongs(albumName: album.collectionName, albumId: album.id) { [weak self] songs, error in
+
+            if let error = error {
+                MessageManager.standart.showNetworkError(message: error.localizedDescription)
+                self?.refreshControl.endRefreshing()
+                return
+            }
+
+            guard let songs = songs else {
+                MessageManager.standart.showError(message: L10n.Error.clientError)
+                self?.refreshControl.endRefreshing()
+                return
+            }
+
             self?.manager.memoryStorage.setItems(songs)
             self?.refreshControl.endRefreshing()
         }
