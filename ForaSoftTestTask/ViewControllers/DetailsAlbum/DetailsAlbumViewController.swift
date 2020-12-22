@@ -17,7 +17,7 @@ class DetailsAlbumViewController: UIViewController, DTTableViewManageable {
 
     private let disposeBag = DisposeBag()
 
-    private var refreshControl = UIRefreshControl()
+    var refreshControl = UIRefreshControl()
 
     lazy var tableView: UITableView! = {
         let tableView = UITableView(frame: .zero, style: .grouped)
@@ -74,24 +74,6 @@ class DetailsAlbumViewController: UIViewController, DTTableViewManageable {
             make.edges.equalTo(view.safeAreaLayoutGuide)
         }
     }
-
-//    private func configureHeaderTableView() {
-//        let tableHeader = AlbumCollectionViewCell()
-//        tableHeader.needArtworkSizeSetup = true
-//        tableHeader.update(album: album)
-//
-//        let containerView = UIView()
-//        containerView.translatesAutoresizingMaskIntoConstraints = false
-//        containerView.addSubview(tableHeader)
-//        self.tableView.tableHeaderView = containerView
-//
-//        containerView.centerXAnchor.constraint(equalTo: self.tableView.centerXAnchor).isActive = true
-//        containerView.widthAnchor.constraint(equalTo: self.tableView.widthAnchor).isActive = true
-//        containerView.topAnchor.constraint(equalTo: self.tableView.topAnchor).isActive = true
-//
-//        self.tableView.tableHeaderView?.layoutIfNeeded()
-//        self.tableView.tableHeaderView = self.tableView.tableHeaderView
-//    }
 
     private func configureTableView() {
         manager.memoryStorage.setSectionHeaderModels([album.collectionName])

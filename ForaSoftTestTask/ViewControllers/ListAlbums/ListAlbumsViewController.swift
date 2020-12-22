@@ -13,6 +13,25 @@ import RxCocoa
 
 class ListAlbumsViewController: UIViewController {
 
+    // MARK: - Empty State
+
+    lazy var emptyStateConfigurator: EmptyStateConfigurator = {
+        EmptyStateConfigurator(
+            emptyStateView: emptyStateView,
+            hiddenContent: [containerView],
+            needShowEmptyState: { [unowned self] in
+                self.albumsList.count == 0 || self.searchBar.text.isNilOrEmpty
+            },
+            configure: { [unowned self] _ in
+                self.emptyStateView.reset()
+                self.emptyStateView.selectType(type: .search)
+        })
+    }()
+
+    lazy var emptyStateView = EmptyStateView()
+
+    // MARK: - View Controller's Fields
+
     private let disposeBag = DisposeBag()
 
     private var refreshControl = UIRefreshControl()
@@ -33,12 +52,15 @@ class ListAlbumsViewController: UIViewController {
 
     private var albumsList: [Album] = [] {
         didSet {
-            self.refreshControl.endRefreshing()
             self.collectionView?.reloadData()
+            self.emptyStateConfigurator.handle()
+            self.refreshControl.endRefreshing()
         }
     }
 
     private var needUpdateFrameCollection: Bool = false
+
+    // MARK: - View Controller's Methods
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -67,7 +89,7 @@ class ListAlbumsViewController: UIViewController {
         setupConstraints()
         configureEvents()
 
-        search()
+        emptyStateConfigurator.handle()
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -90,6 +112,7 @@ class ListAlbumsViewController: UIViewController {
 
     private func addSubviews() {
         view.addSubview(containerView)
+        view.addSubview(emptyStateView)
     }
 
     private func configureNavigationController() {
@@ -129,28 +152,31 @@ class ListAlbumsViewController: UIViewController {
         containerView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide).inset(16)
         }
+
+        emptyStateView.snp.makeConstraints { make in
+            make.edges.equalTo(view.safeAreaLayoutGuide)
+        }
     }
 
     private func configureEvents() {
         searchBar.rx.text.asObservable().throttle(.seconds(1), scheduler: MainScheduler.instance).subscribe(onNext: { [unowned self] text in
-            if !text.isNilOrEmpty {
+            if let text = text, !text.isEmpty {
                 self.search(text: text)
+            } else {
+                self.emptyStateConfigurator.handle()
             }
         }).disposed(by: disposeBag)
 
         refreshControl.rx.controlEvent(.valueChanged).subscribe(onNext: { [unowned self] in
-            self.search(text: self.searchBar.text)
+            if let text = self.searchBar.text, !text.isEmpty {
+                self.search(text: text)
+            }
         }).disposed(by: disposeBag)
     }
 
-    private func search(text: String? = nil) {
-        if text == nil {
-            searchBar.text = Constants.ListAlbum.defaultSearchText
-        }
-
-        let searchText = text.isNilOrEmpty ? Constants.ListAlbum.defaultSearchText : text!
-
-        searchAlbums(searchText: searchText) { [weak self] albums in
+    private func search(text: String) {
+        refreshControl.beginRefreshing()
+        searchAlbums(searchText: text) { [weak self] albums in
             self?.albumsList = albums
         }
     }
@@ -158,8 +184,10 @@ class ListAlbumsViewController: UIViewController {
 
 extension ListAlbumsViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        search(text: searchBar.text)
-        searchBar.endEditing(true)
+        if let text = searchBar.text {
+            search(text: text)
+            searchBar.endEditing(true)
+        }
     }
 }
 
