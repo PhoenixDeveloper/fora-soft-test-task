@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD012CC4259269B8002DFB46 /* MessageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD012CC0259269B8002DFB46 /* MessageViewExtensions.swift */; };
+		BD012CC5259269B8002DFB46 /* MessageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD012CC1259269B8002DFB46 /* MessageManager.swift */; };
+		BD012CC725926C32002DFB46 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD012CC625926C32002DFB46 /* ApiService.swift */; };
+		BD012CCA259271B7002DFB46 /* CustomMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD012CC8259271B7002DFB46 /* CustomMessageView.xib */; };
+		BD012CCB259271B7002DFB46 /* CustomMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD012CC9259271B7002DFB46 /* CustomMessageView.swift */; };
+		BD44E97125925EF7005C241B /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD44E96F25925EF7005C241B /* EmptyStateView.swift */; };
+		BD44E97225925EF7005C241B /* EmptyStateConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD44E97025925EF7005C241B /* EmptyStateConfigurator.swift */; };
 		BD56D3482580AD6A00BECC2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD56D3472580AD6A00BECC2E /* AppDelegate.swift */; };
 		BD56D3512580AD6F00BECC2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD56D3502580AD6F00BECC2E /* Assets.xcassets */; };
 		BD56D3542580AD6F00BECC2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD56D3522580AD6F00BECC2E /* LaunchScreen.storyboard */; };
@@ -19,18 +26,23 @@
 		BD877275258D034900D08F04 /* ListAlbumsViewController+Routing.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD877274258D034900D08F04 /* ListAlbumsViewController+Routing.swift */; };
 		BD877278258D08F100D08F04 /* SongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD877277258D08F100D08F04 /* SongTableViewCell.swift */; };
 		BD87727A258D0C1500D08F04 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD877279258D0C1500D08F04 /* Song.swift */; };
-		BD87727C258D133100D08F04 /* DetailsAlbumViewController+WorkWithAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD87727B258D133100D08F04 /* DetailsAlbumViewController+WorkWithAPI.swift */; };
 		BD9971292580BD80000C94DC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BD9971282580BD80000C94DC /* Localizable.strings */; };
 		BD99712D2580BECC000C94DC /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD99712A2580BECB000C94DC /* Assets.swift */; };
 		BD99712E2580BECC000C94DC /* Scenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD99712B2580BECC000C94DC /* Scenes.swift */; };
 		BD99712F2580BECC000C94DC /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD99712C2580BECC000C94DC /* Strings.swift */; };
 		BD9971322580BF9C000C94DC /* ListAlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9971312580BF9C000C94DC /* ListAlbumsViewController.swift */; };
-		BD9971352580C013000C94DC /* ListAlbumsViewController+WorkWithAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9971342580C013000C94DC /* ListAlbumsViewController+WorkWithAPI.swift */; };
 		C5BA685403CEB9F475788437 /* Pods_ForaSoftTestTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC860500AB2C31ADDECAAECC /* Pods_ForaSoftTestTask.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		64AAA2C915A5658A53801168 /* Pods-ForaSoftTestTask.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ForaSoftTestTask.debug.xcconfig"; path = "Target Support Files/Pods-ForaSoftTestTask/Pods-ForaSoftTestTask.debug.xcconfig"; sourceTree = "<group>"; };
+		BD012CC0259269B8002DFB46 /* MessageViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewExtensions.swift; sourceTree = "<group>"; };
+		BD012CC1259269B8002DFB46 /* MessageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageManager.swift; sourceTree = "<group>"; };
+		BD012CC625926C32002DFB46 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		BD012CC8259271B7002DFB46 /* CustomMessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomMessageView.xib; sourceTree = "<group>"; };
+		BD012CC9259271B7002DFB46 /* CustomMessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomMessageView.swift; sourceTree = "<group>"; };
+		BD44E96F25925EF7005C241B /* EmptyStateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
+		BD44E97025925EF7005C241B /* EmptyStateConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyStateConfigurator.swift; sourceTree = "<group>"; };
 		BD56D3442580AD6A00BECC2E /* ForaSoftTestTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ForaSoftTestTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD56D3472580AD6A00BECC2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD56D3502580AD6F00BECC2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -45,13 +57,11 @@
 		BD877274258D034900D08F04 /* ListAlbumsViewController+Routing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListAlbumsViewController+Routing.swift"; sourceTree = "<group>"; };
 		BD877277258D08F100D08F04 /* SongTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTableViewCell.swift; sourceTree = "<group>"; };
 		BD877279258D0C1500D08F04 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
-		BD87727B258D133100D08F04 /* DetailsAlbumViewController+WorkWithAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailsAlbumViewController+WorkWithAPI.swift"; sourceTree = "<group>"; };
 		BD9971282580BD80000C94DC /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		BD99712A2580BECB000C94DC /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		BD99712B2580BECC000C94DC /* Scenes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scenes.swift; sourceTree = "<group>"; };
 		BD99712C2580BECC000C94DC /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		BD9971312580BF9C000C94DC /* ListAlbumsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAlbumsViewController.swift; sourceTree = "<group>"; };
-		BD9971342580C013000C94DC /* ListAlbumsViewController+WorkWithAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListAlbumsViewController+WorkWithAPI.swift"; sourceTree = "<group>"; };
 		CC860500AB2C31ADDECAAECC /* Pods_ForaSoftTestTask.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ForaSoftTestTask.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E75902375992E319B4365904 /* Pods-ForaSoftTestTask.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ForaSoftTestTask.release.xcconfig"; path = "Target Support Files/Pods-ForaSoftTestTask/Pods-ForaSoftTestTask.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,6 +86,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BD012CBC259269B8002DFB46 /* MessageManager */ = {
+			isa = PBXGroup;
+			children = (
+				BD012CBD259269B8002DFB46 /* MessageView */,
+				BD012CC1259269B8002DFB46 /* MessageManager.swift */,
+			);
+			path = MessageManager;
+			sourceTree = "<group>";
+		};
+		BD012CBD259269B8002DFB46 /* MessageView */ = {
+			isa = PBXGroup;
+			children = (
+				BD012CC9259271B7002DFB46 /* CustomMessageView.swift */,
+				BD012CC8259271B7002DFB46 /* CustomMessageView.xib */,
+				BD012CC0259269B8002DFB46 /* MessageViewExtensions.swift */,
+			);
+			path = MessageView;
+			sourceTree = "<group>";
+		};
 		BD3F65E02580BAD00032F47E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +117,32 @@
 				BD620F532580C13200843D8B /* Constants.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		BD44E96D25925EF7005C241B /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				BD44E96E25925EF7005C241B /* EmptyState */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		BD44E96E25925EF7005C241B /* EmptyState */ = {
+			isa = PBXGroup;
+			children = (
+				BD44E96F25925EF7005C241B /* EmptyStateView.swift */,
+				BD44E97025925EF7005C241B /* EmptyStateConfigurator.swift */,
+			);
+			path = EmptyState;
+			sourceTree = "<group>";
+		};
+		BD44E97325926926005C241B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				BD012CBC259269B8002DFB46 /* MessageManager */,
+				BD012CC625926C32002DFB46 /* ApiService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		BD56D33B2580AD6A00BECC2E = {
@@ -141,7 +196,6 @@
 			children = (
 				BD877276258D08CB00D08F04 /* Support */,
 				BD877272258D000700D08F04 /* DetailsAlbumViewController.swift */,
-				BD87727B258D133100D08F04 /* DetailsAlbumViewController+WorkWithAPI.swift */,
 			);
 			path = DetailsAlbum;
 			sourceTree = "<group>";
@@ -166,6 +220,8 @@
 		BD9971332580BFA7000C94DC /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				BD44E97325926926005C241B /* Services */,
+				BD44E96D25925EF7005C241B /* CustomViews */,
 				BD5B8DD22580D27A00703BAD /* Extensions */,
 				BD9971372580C027000C94DC /* Enties */,
 			);
@@ -177,7 +233,6 @@
 			children = (
 				BD5B8DD52580DF6C00703BAD /* Support */,
 				BD9971312580BF9C000C94DC /* ListAlbumsViewController.swift */,
-				BD9971342580C013000C94DC /* ListAlbumsViewController+WorkWithAPI.swift */,
 				BD87726F258CF63800D08F04 /* ListAlbumsViewController+KeyboardMethods.swift */,
 				BD877274258D034900D08F04 /* ListAlbumsViewController+Routing.swift */,
 			);
@@ -264,6 +319,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD56D3542580AD6F00BECC2E /* LaunchScreen.storyboard in Resources */,
+				BD012CCA259271B7002DFB46 /* CustomMessageView.xib in Resources */,
 				BD9971292580BD80000C94DC /* Localizable.strings in Resources */,
 				BD56D3512580AD6F00BECC2E /* Assets.xcassets in Resources */,
 			);
@@ -337,19 +393,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD877270258CF63800D08F04 /* ListAlbumsViewController+KeyboardMethods.swift in Sources */,
-				BD87727C258D133100D08F04 /* DetailsAlbumViewController+WorkWithAPI.swift in Sources */,
+				BD012CC4259269B8002DFB46 /* MessageViewExtensions.swift in Sources */,
 				BD9971322580BF9C000C94DC /* ListAlbumsViewController.swift in Sources */,
 				BD99712D2580BECC000C94DC /* Assets.swift in Sources */,
+				BD012CC725926C32002DFB46 /* ApiService.swift in Sources */,
 				BD877275258D034900D08F04 /* ListAlbumsViewController+Routing.swift in Sources */,
-				BD9971352580C013000C94DC /* ListAlbumsViewController+WorkWithAPI.swift in Sources */,
+				BD44E97125925EF7005C241B /* EmptyStateView.swift in Sources */,
 				BD56D3482580AD6A00BECC2E /* AppDelegate.swift in Sources */,
 				BD5B8DD72580DF8D00703BAD /* AlbumCollectionViewCell.swift in Sources */,
+				BD012CCB259271B7002DFB46 /* CustomMessageView.swift in Sources */,
 				BD620F542580C13200843D8B /* Constants.swift in Sources */,
+				BD44E97225925EF7005C241B /* EmptyStateConfigurator.swift in Sources */,
 				BD5B8DD42580D28C00703BAD /* StringExtension.swift in Sources */,
 				BD87727A258D0C1500D08F04 /* Song.swift in Sources */,
 				BD99712F2580BECC000C94DC /* Strings.swift in Sources */,
 				BD877278258D08F100D08F04 /* SongTableViewCell.swift in Sources */,
 				BD99712E2580BECC000C94DC /* Scenes.swift in Sources */,
+				BD012CC5259269B8002DFB46 /* MessageManager.swift in Sources */,
 				BD877273258D000700D08F04 /* DetailsAlbumViewController.swift in Sources */,
 				BD620F562580C22B00843D8B /* Album.swift in Sources */,
 			);

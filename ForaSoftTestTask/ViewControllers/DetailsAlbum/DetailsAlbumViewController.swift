@@ -75,31 +75,27 @@ class DetailsAlbumViewController: UIViewController, DTTableViewManageable {
         }
     }
 
-//    private func configureHeaderTableView() {
-//        let tableHeader = AlbumCollectionViewCell()
-//        tableHeader.needArtworkSizeSetup = true
-//        tableHeader.update(album: album)
-//
-//        let containerView = UIView()
-//        containerView.translatesAutoresizingMaskIntoConstraints = false
-//        containerView.addSubview(tableHeader)
-//        self.tableView.tableHeaderView = containerView
-//
-//        containerView.centerXAnchor.constraint(equalTo: self.tableView.centerXAnchor).isActive = true
-//        containerView.widthAnchor.constraint(equalTo: self.tableView.widthAnchor).isActive = true
-//        containerView.topAnchor.constraint(equalTo: self.tableView.topAnchor).isActive = true
-//
-//        self.tableView.tableHeaderView?.layoutIfNeeded()
-//        self.tableView.tableHeaderView = self.tableView.tableHeaderView
-//    }
-
     private func configureTableView() {
         manager.memoryStorage.setSectionHeaderModels([album.collectionName])
         manager.register(SongTableViewCell.self)
     }
 
     private func updateData() {
-        getSongs(albumName: album.collectionName, albumId: album.id) { [weak self] songs in
+        refreshControl.beginRefreshing()
+        ApiService.standart.getSongs(albumName: album.collectionName, albumId: album.id) { [weak self] songs, error in
+
+            if let error = error {
+                MessageManager.standart.showNetworkError(message: error.localizedDescription)
+                self?.refreshControl.endRefreshing()
+                return
+            }
+
+            guard let songs = songs else {
+                MessageManager.standart.showError(message: L10n.Error.clientError)
+                self?.refreshControl.endRefreshing()
+                return
+            }
+
             self?.manager.memoryStorage.setItems(songs)
             self?.refreshControl.endRefreshing()
         }

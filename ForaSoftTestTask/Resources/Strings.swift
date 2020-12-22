@@ -26,7 +26,16 @@ internal enum L10n {
     }
   }
 
+  internal enum Error {
+    /// An application error has occurred. Please update your application in AppStore or inform customer service
+    internal static let clientError = L10n.tr("Localizable", "Error.clientError")
+  }
+
   internal enum ListAlbums {
+    internal enum EmptyState {
+      /// No search results
+      internal static let text = L10n.tr("Localizable", "ListAlbums.EmptyState.text")
+    }
     internal enum SearchBar {
       /// Search albums...
       internal static let placeholder = L10n.tr("Localizable", "ListAlbums.SearchBar.placeholder")
